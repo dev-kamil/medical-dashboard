@@ -2,6 +2,9 @@ import "./App.css";
 import Menu from "./components/Menu";
 import TopBar from "./components/TopBar";
 import MainStatistics from "./components/MainStatistics";
+import AppointmentRequest from "./components/AppointmentRequest";
+import PatientStatistics from "./components/PatientStatistics";
+import GenderStatistics from "./components/GenderStatistics";
 
 function App() {
   return (
@@ -16,6 +19,13 @@ function App() {
         </p>
         <p className="text-slate-500">Have a nice day at great work</p>
         <MainStatistics />
+        <div className="grid grid-cols-[2fr_2fr] mt-8 gap-8">
+          <AppointmentRequest />
+          <div>
+            <PatientStatistics />
+            <GenderStatistics />
+          </div>
+        </div>
       </div>
     </div>
   );
