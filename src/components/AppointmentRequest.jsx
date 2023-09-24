@@ -14,7 +14,7 @@ export default function AppointmentRequest() {
       picture: profilePicture,
       age: 35,
       gender: "female",
-      date: new Date().toLocaleString(),
+      date: new Date(),
       status: "declined",
     },
     {
@@ -23,7 +23,7 @@ export default function AppointmentRequest() {
       picture: profilePicture,
       age: 41,
       gender: "female",
-      date: new Date().toLocaleString(),
+      date: new Date(),
       status: "confirmed",
     },
     {
@@ -32,7 +32,7 @@ export default function AppointmentRequest() {
       picture: profilePicture,
       age: 41,
       gender: "female",
-      date: new Date().toLocaleString(),
+      date: new Date(),
       status: "confirmed",
     },
     {
@@ -41,7 +41,7 @@ export default function AppointmentRequest() {
       picture: profilePicture,
       age: 41,
       gender: "female",
-      date: new Date().toLocaleString(),
+      date: new Date(),
       status: "confirmed",
     },
     {
@@ -50,7 +50,7 @@ export default function AppointmentRequest() {
       picture: profilePicture,
       age: 35,
       gender: "female",
-      date: new Date().toLocaleString(),
+      date: new Date(),
       status: "declined",
     },
     {
@@ -59,17 +59,18 @@ export default function AppointmentRequest() {
       picture: profilePicture,
       age: 23,
       gender: "male",
-      date: new Date().toLocaleString(),
+      date: new Date(),
       status: null,
     },
   ];
 
-  const statusClass = "ml-auto px-4 py-1 first-letter:uppercase rounded ";
+  const statusClass =
+    "ml-auto px-4 py-1 first-letter:uppercase rounded text-sm ";
   const declinedClass = statusClass + "text-red-500 bg-red-100/75";
   const confirmedClass = statusClass + "text-indigo-500 bg-indigo-100/75";
 
   return (
-    <div>
+    <div className="py-1">
       <div className="flex justify-between items-center">
         <h2 className="font-bold text-xl text-slate-800">
           Appointment Request
@@ -96,7 +97,13 @@ export default function AppointmentRequest() {
                   {request.first} {request.last}
                 </p>
                 <p className="text-slate-500 text-sm first-letter:uppercase">
-                  {request.gender}, {request.age}, {request.date}
+                  {request.gender}, {request.age},{" "}
+                  {request.date.toLocaleString([], {
+                    month: "numeric",
+                    day: "numeric",
+                    hour: "numeric",
+                    minute: "numeric",
+                  })}
                 </p>
               </div>
               {request.status && (

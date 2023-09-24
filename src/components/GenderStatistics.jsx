@@ -1,4 +1,5 @@
 import React from "react";
+import { AiOutlineCaretDown } from "react-icons/ai";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 
@@ -24,7 +25,7 @@ export default function GenderStatistics() {
         position: "bottom",
         labels: {
           usePointStyle: true,
-          pointStyle: "circle"
+          pointStyle: "circle",
         },
       },
     },
@@ -34,13 +35,14 @@ export default function GenderStatistics() {
     <div className="mt-4">
       <div className="flex justify-between items-center">
         <h2 className="font-bold text-xl text-slate-800">Gender</h2>
-        <div className="bg-white px-4 py-2 rounded-xl">
-          <select name="patient-stats-year" className="text-slate-400">
+        <div className="bg-white px-3 py-1 rounded-xl flex items-center text-slate-400 gap-1">
+          <select name="patient-stats-year" className=" appearance-none">
             <option value="2023">2023</option>
             <option value="2022">2022</option>
             <option value="2021">2021</option>
             <option value="2020">2020</option>
           </select>
+          <AiOutlineCaretDown />
         </div>
       </div>
       <div className="bg-white rounded-xl mt-4 py-4">

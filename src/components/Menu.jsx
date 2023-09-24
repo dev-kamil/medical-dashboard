@@ -20,7 +20,7 @@ export default function Menu() {
           <span className="font-black tracking-tight text-lg">Doct.</span>
         </p>
       </div>
-      <nav className="mt-14">
+      <nav className="mt-12">
         <a
           href="#"
           className="p-3 bg-black text-white w-full rounded-md flex items-center gap-2"
