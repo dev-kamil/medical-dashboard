@@ -1,5 +1,11 @@
 import React from "react";
-import { AiOutlineUser, AiOutlineRise, AiOutlineFall, AiOutlineCaretDown } from "react-icons/ai";
+import {
+  AiOutlineUser,
+  AiOutlineRise,
+  AiOutlineFall,
+  AiOutlineCaretDown,
+} from "react-icons/ai";
+import { motion } from "framer-motion";
 
 export default function PatientStatistics() {
   const stats = [
@@ -8,14 +14,14 @@ export default function PatientStatistics() {
       description: "New Patient",
       change: 15,
       color: "text-sky-500",
-      bgColor: "bg-sky-500/10"
+      bgColor: "bg-sky-500/10",
     },
     {
       value: "166.3k",
       description: "Old Patient",
       change: -3,
       color: "text-orange-500",
-      bgColor: "bg-orange-500/10"
+      bgColor: "bg-orange-500/10",
     },
   ];
   return (
@@ -35,9 +41,15 @@ export default function PatientStatistics() {
       <div className="bg-white rounded-xl mt-4 py-2">
         <ul>
           {stats.map((stat, index) => (
-            <div
+            <motion.div
               key={`patient-stats-${index}`}
               className="flex items-center gap-4 px-4 py-3"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                transition: { delay: 0.4 + index * 0.05 },
+              }}
             >
               <div
                 className={`${stat.color} ${stat.bgColor} text-3xl p-4 rounded-full text-`}
@@ -58,7 +70,7 @@ export default function PatientStatistics() {
                 {stat.change >= 0 ? <AiOutlineRise /> : <AiOutlineFall />}
                 <p>{stat.change}%</p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </ul>
       </div>

@@ -2,6 +2,7 @@ import React from "react";
 import { AiOutlineCaretDown } from "react-icons/ai";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
+import { motion } from "framer-motion";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -46,9 +47,17 @@ export default function GenderStatistics() {
         </div>
       </div>
       <div className="bg-white rounded-xl mt-4 py-4">
-        <div className="max-w-[250px] m-auto">
+        <motion.div
+          className="max-w-[250px] m-auto"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{
+            opacity: 1,
+            y: 0,
+            transition: { delay: 0.5 },
+          }}
+        >
           <Doughnut data={data} options={options} />
-        </div>
+        </motion.div>
       </div>
     </div>
   );

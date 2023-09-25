@@ -5,6 +5,7 @@ import {
   AiOutlineClose,
 } from "react-icons/ai";
 import profilePicture from "../assets/doctor.jpg";
+import { motion } from "framer-motion";
 
 export default function AppointmentRequest() {
   const requests = [
@@ -83,9 +84,15 @@ export default function AppointmentRequest() {
       <div className="bg-white rounded-xl mt-4 py-2">
         <ul>
           {requests.map((request, index) => (
-            <li
+            <motion.li
               key={`request-${index}`}
               className="flex items-center gap-4 px-4 py-3"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                transition: { delay: 0.4 + index * 0.05 },
+              }}
             >
               <img
                 src={request.picture}
@@ -127,7 +134,7 @@ export default function AppointmentRequest() {
                   </button>
                 </div>
               )}
-            </li>
+            </motion.li>
           ))}
         </ul>
       </div>

@@ -5,6 +5,7 @@ import {
   AiOutlineMessage,
   AiOutlineVideoCamera,
 } from "react-icons/ai";
+import { motion } from "framer-motion";
 
 export default function MainStatistics() {
   const stats = [
@@ -34,17 +35,24 @@ export default function MainStatistics() {
     },
   ];
   return (
-    <div className="mt-6 grid grid-cols-2 xl:grid-cols-4 gap-4">
-      {stats.map((stat) => (
-        <div className={`${stat.color} rounded-xl p-4 text-white flex items-center gap-4 hover:brightness-110`}>
+    <div className="mt-6 grid sm:grid-cols-2 xl:grid-cols-4 gap-4">
+      {stats.map((stat, index) => (
+        <motion.div
+          key={`main-stat-${index}`}
+          className={`${stat.color} rounded-xl p-4 text-white flex items-center gap-4 hover:brightness-110`}
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0, transition: { delay: 0.2 + index * 0.05 } }}
+        >
           <div className="text-4xl bg-white/10 p-4 inline-block rounded-full">
             {stat.icon}
           </div>
           <div>
             <p className="font-bold text-2xl leading-none">{stat.value}</p>
-            <p className="text-slate-100 leading-none mt-2">{stat.description}</p>
+            <p className="text-slate-100 leading-none mt-2">
+              {stat.description}
+            </p>
           </div>
-        </div>
+        </motion.div>
       ))}
     </div>
   );

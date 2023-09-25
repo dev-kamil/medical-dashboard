@@ -5,6 +5,7 @@ import {
   AiOutlineClose,
 } from "react-icons/ai";
 import profilePicture from "../assets/doctor.jpg";
+import { motion } from "framer-motion";
 
 function addMinutes(date, minutes) {
   return new Date(date.getTime() + minutes * 60000);
@@ -43,9 +44,15 @@ export default function AppointmentRequest() {
       <div className="bg-white rounded-xl mt-4 py-2">
         <ul>
           {appointments.map((appointment, index) => (
-            <li
+            <motion.li
               key={`today-appointment-${index}`}
               className="flex items-center gap-4 px-4 py-3 text-slate-500 first:bg-sky-500/10 first:rounded-md"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                transition: { delay: 0.4 + index * 0.05 },
+              }}
             >
               <img
                 src={appointment.picture}
@@ -61,14 +68,16 @@ export default function AppointmentRequest() {
                 </p>
               </div>
               <p className="whitespace-nowrap ml-auto text-sm">
-                {index === 0
-                  ? <p className="font-medium">Ongoing</p>
-                  : appointment.date.toLocaleTimeString([], {
-                      hour: "numeric",
-                      minute: "numeric",
-                    })}
+                {index === 0 ? (
+                  <p className="font-medium">Ongoing</p>
+                ) : (
+                  appointment.date.toLocaleTimeString([], {
+                    hour: "numeric",
+                    minute: "numeric",
+                  })
+                )}
               </p>
-            </li>
+            </motion.li>
           ))}
         </ul>
       </div>

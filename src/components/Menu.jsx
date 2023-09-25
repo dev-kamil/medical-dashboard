@@ -10,6 +10,23 @@ import {
   AiOutlineFileText,
   AiOutlineSetting,
 } from "react-icons/ai";
+import { motion } from "framer-motion";
+
+const itemVariants = {
+  initial: { opacity: 0, y: -20 },
+  animate: {
+    opacity: 1,
+    y: 0,
+  },
+};
+
+const listVariants = {
+  animate: {
+    transition: {
+      staggerChildren: 0.05,
+    },
+  },
+};
 
 export default function Menu() {
   return (
@@ -20,64 +37,93 @@ export default function Menu() {
           <span className="font-black tracking-tight text-lg">Doct.</span>
         </p>
       </div>
-      <nav className="mt-12">
-        <a
+      <motion.nav
+        className="mt-12"
+        variants={listVariants}
+        initial="initial"
+        animate="animate"
+      >
+        <motion.a
+          variants={itemVariants}
           href="#"
           className="p-3 bg-black text-white w-full rounded-md flex items-center gap-2"
         >
           <AiOutlineAppstore />
           Overview
-        </a>
-        <a
+        </motion.a>
+        <motion.a
+          variants={itemVariants}
           href="#"
           className="p-3 text-slate-500 w-full flex items-center gap-2"
         >
           <AiOutlineCalendar />
           Appointment
-        </a>
-        <a
+        </motion.a>
+        <motion.a
+          variants={itemVariants}
           href="#"
           className="p-3 text-slate-500 w-full flex items-center gap-2"
         >
           <AiOutlineUser />
           My patients
-        </a>
-        <a
+        </motion.a>
+        <motion.a
+          variants={itemVariants}
           href="#"
           className="p-3 text-slate-500 w-full flex items-center gap-2"
         >
           <AiOutlineClockCircle />
           Schedule Timings
-        </a>
-        <a
+        </motion.a>
+        <motion.a
+          variants={itemVariants}
           href="#"
           className="p-3 text-slate-500 w-full flex items-center gap-2"
         >
           <AiOutlineCreditCard />
           Payments
-        </a>
-        <a
+        </motion.a>
+        <motion.a
+          variants={itemVariants}
           href="#"
           className="p-3 text-slate-500 w-full flex items-center gap-2"
         >
           <AiOutlineMessage />
           Message
-        </a>
-        <a
+        </motion.a>
+        <motion.a
+          variants={itemVariants}
           href="#"
           className="p-3 text-slate-500 w-full flex items-center gap-2"
         >
           <AiOutlineFileText />
           Blog
-        </a>
-        <a
+        </motion.a>
+        <motion.a
+          variants={itemVariants}
           href="#"
           className="p-3 text-slate-500 w-full flex items-center gap-2"
         >
           <AiOutlineSetting />
           Settings
-        </a>
-      </nav>
+        </motion.a>
+        <p className="text-sm text-slate-500 fixed bottom-4 max-w-[200px]">
+          Based on a{" "}
+          <a
+            href="https://www.figma.com/community/file/1042396052506493532"
+            className="text-slate-800 underline"
+          >
+            UI project
+          </a>{" "}
+          made by{" "}
+          <a
+            href="https://www.figma.com/@gphmoinul"
+            className="text-slate-800 underline"
+          >
+            Moinul Hasan
+          </a>
+        </p>
+      </motion.nav>
     </>
   );
 }
