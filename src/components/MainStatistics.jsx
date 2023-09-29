@@ -41,7 +41,11 @@ export default function MainStatistics() {
           key={`main-stat-${index}`}
           className={`${stat.color} rounded-xl p-4 text-white flex items-center gap-4 hover:brightness-110`}
           initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0, transition: { delay: 0.2 + index * 0.05 } }}
+          animate={{
+            opacity: 1,
+            y: 0,
+            transition: { delay: 0.2 + index * 0.05 },
+          }}
         >
           <div className="text-4xl bg-white/10 p-4 inline-block rounded-full">
             {stat.icon}

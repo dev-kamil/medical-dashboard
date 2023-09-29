@@ -1,9 +1,4 @@
 import React from "react";
-import {
-  AiOutlineArrowRight,
-  AiOutlineCheck,
-  AiOutlineClose,
-} from "react-icons/ai";
 import profilePicture from "../assets/doctor.jpg";
 import { motion } from "framer-motion";
 

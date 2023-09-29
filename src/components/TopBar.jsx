@@ -8,13 +8,13 @@ import doctorPicture from "../assets/doctor.jpg";
 
 export default function TopBar() {
   return (
-    <div className="flex items-center justify-between text-slate-500 flex-wrap gap-2">
+    <div className="flex items-center justify-between text-slate-500 flex-wrap">
       <div className="flex items-center gap-2">
-        <AiOutlineSearch className="text-slate-400 text-2xl" />
+        <AiOutlineSearch className="text-slate-500 sm:text-slate-400 text-2xl" />
         <input
           type="text"
           placeholder="Search for appointments, patients, etc..."
-          className="bg-transparent placeholder:text-slate-400 focus:outline-none placeholder:overflow-ellipsis md:min-w-[30ch]"
+          className="hidden sm:block bg-transparent placeholder:text-slate-400 focus:outline-none placeholder:overflow-ellipsis sm:min-w-[30ch] md:min-w-[35ch]"
         />
       </div>
       <div className="flex items-center gap-6">

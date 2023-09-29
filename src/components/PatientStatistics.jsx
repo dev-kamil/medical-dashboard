@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   AiOutlineUser,
   AiOutlineRise,
@@ -8,28 +8,102 @@ import {
 import { motion } from "framer-motion";
 
 export default function PatientStatistics() {
-  const stats = [
+  const allStats = [
     {
-      value: "24.4k",
-      description: "New Patient",
-      change: 15,
-      color: "text-sky-500",
-      bgColor: "bg-sky-500/10",
+      year: 2023,
+      data: [
+        {
+          value: "24.4k",
+          description: "New Patient",
+          change: 15,
+          color: "text-sky-500",
+          bgColor: "bg-sky-500/10",
+        },
+        {
+          value: "166.3k",
+          description: "Old Patient",
+          change: -3,
+          color: "text-orange-500",
+          bgColor: "bg-orange-500/10",
+        },
+      ],
     },
     {
-      value: "166.3k",
-      description: "Old Patient",
-      change: -3,
-      color: "text-orange-500",
-      bgColor: "bg-orange-500/10",
+      year: 2022,
+      data: [
+        {
+          value: "22.7k",
+          description: "New Patient",
+          change: 7,
+          color: "text-sky-500",
+          bgColor: "bg-sky-500/10",
+        },
+        {
+          value: "168.7k",
+          description: "Old Patient",
+          change: 1,
+          color: "text-orange-500",
+          bgColor: "bg-orange-500/10",
+        },
+      ],
+    },
+    {
+      year: 2021,
+      data: [
+        {
+          value: "20.3k",
+          description: "New Patient",
+          change: 4,
+          color: "text-sky-500",
+          bgColor: "bg-sky-500/10",
+        },
+        {
+          value: "152.4k",
+          description: "Old Patient",
+          change: 5,
+          color: "text-orange-500",
+          bgColor: "bg-orange-500/10",
+        },
+      ],
+    },
+    {
+      year: 2020,
+      data: [
+        {
+          value: "18.0k",
+          description: "New Patient",
+          change: 10,
+          color: "text-sky-500",
+          bgColor: "bg-sky-500/10",
+        },
+        {
+          value: "147.5k",
+          description: "Old Patient",
+          change: 6,
+          color: "text-orange-500",
+          bgColor: "bg-orange-500/10",
+        },
+      ],
     },
   ];
+
+  const [stats, setStats] = useState(allStats[0].data);
+
+  function handleChange(e) {
+    const newStat = allStats.find((stat) => stat.year == e.target.value);
+    setStats(newStat.data);
+  }
+
   return (
     <div>
       <div className="flex justify-between items-center">
         <h2 className="font-bold text-xl text-slate-800">Patients</h2>
         <div className="bg-white px-3 py-1 rounded-xl flex items-center text-slate-400 gap-1">
-          <select name="patient-stats-year" className=" appearance-none">
+          <select
+            name="patient-stats-year"
+            className="appearance-none bg-transparent focus:outline-none"
+            onChange={handleChange}
+          >
             <option value="2023">2023</option>
             <option value="2022">2022</option>
             <option value="2021">2021</option>

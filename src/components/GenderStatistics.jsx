@@ -32,12 +32,28 @@ export default function GenderStatistics() {
     },
   };
 
+  const chartRef = React.useRef();
+
+  function handleChange() {
+    const chart = chartRef.current;
+    chart.data.datasets[0].data = [
+      Math.floor(Math.random() * 100) + 1,
+      Math.floor(Math.random() * 100) + 1,
+      Math.floor(Math.random() * 100) + 1,
+    ];
+    chart.update();
+  }
+
   return (
     <div className="mt-4">
       <div className="flex justify-between items-center">
         <h2 className="font-bold text-xl text-slate-800">Gender</h2>
         <div className="bg-white px-3 py-1 rounded-xl flex items-center text-slate-400 gap-1">
-          <select name="patient-stats-year" className=" appearance-none">
+          <select
+            name="patient-stats-year"
+            className="appearance-none bg-transparent focus:outline-none"
+            onChange={handleChange}
+          >
             <option value="2023">2023</option>
             <option value="2022">2022</option>
             <option value="2021">2021</option>
@@ -56,7 +72,7 @@ export default function GenderStatistics() {
             transition: { delay: 0.5 },
           }}
         >
-          <Doughnut data={data} options={options} />
+          <Doughnut data={data} options={options} ref={chartRef} />
         </motion.div>
       </div>
     </div>

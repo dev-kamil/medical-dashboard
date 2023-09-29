@@ -6,11 +6,15 @@ import AppointmentRequest from "./components/AppointmentRequest";
 import PatientStatistics from "./components/PatientStatistics";
 import GenderStatistics from "./components/GenderStatistics";
 import TodayAppointments from "./components/TodayAppointments";
-import {motion} from "framer-motion"
+import { motion } from "framer-motion";
 
 function App() {
   return (
-    <motion.div className="flex" initial={{opacity:0}} animate={{opacity:1, transition: {duration: 0.4}}}>
+    <motion.div
+      className="flex"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1, transition: { duration: 0.4 } }}
+    >
       <div className="hidden lg:block bg-white min-w-[250px] px-4 py-6">
         <Menu />
       </div>
