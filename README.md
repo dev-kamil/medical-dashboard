@@ -1,8 +1,18 @@
-# React + Vite
+# Medical Dashboard
+## About the project
+The dashboard was made to experiment with Framer Motion and to transform Figma design into a working website. Additionally, a package with icons was incorporated during the process. The website is one-page and has no back-end functionalities.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation
+1. Clone the repo
+   ```sh
+   git clone https://github.com/dev-kamil/medical-dashboard
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Run application
+   ```sh
+   npm run dev
+   ```
+   Done! :smile:
