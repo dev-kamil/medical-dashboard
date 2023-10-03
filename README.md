@@ -1,4 +1,8 @@
 # Medical Dashboard
+<p align="center">
+   <img src="./preview.gif">
+</p>
+
 ## About the project
 The dashboard was made to experiment with Framer Motion and to transform Figma design into a working website. Additionally, a package with icons was incorporated during the process. The website is one-page and has no back-end functionalities.
 
